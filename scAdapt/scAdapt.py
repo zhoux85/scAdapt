@@ -142,7 +142,7 @@ def scAdapt(args, data_set):
                 acc_by_label[i] = np.sum(predict_label_arr.cpu().data.numpy()[all_label == i] == i) / np.sum(all_label == i)
             np.set_printoptions(suppress=True)
             print('iter:', epoch, "average acc over all test cell types: ", round(np.nanmean(acc_by_label), 3))
-            print("acc of each test cell type: ", acc_by_label)
+            print("acc of each test cell type: ", np.round(acc_by_label, 3))
 
             # div_score, div_score_all, ent_score, sil_score = evaluate_multibatch(code_arr, train_set, test_set_eval, epoch)
             #results_file = result_path + source_name + "_" + target_name + "_" + str(epoch)+ "_acc_div_sil.csv"

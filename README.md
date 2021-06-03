@@ -7,13 +7,13 @@ This repository contains the preprocessed data and Python implementation for scA
 
 # Requirements
 
-* pyTorch>=1.1.0
-* umap-learn>=0.3.8
-* universal-divergence>=0.2.0
+pyTorch>=1.1.0
+umap-learn>=0.3.8
+universal-divergence>=0.2.0
 
 # Data preparation
 
-Log-normalized count matrix is recommonded as the input of scAdapt. Raw counts matrix can be normalized by the NormalizeData function in Seurat with default ‘LogNormalize’ normalization method and a scale factor of 10,000. We use top 2000 highly variable genes as input features. We provided an example of processed datasets in the `processed_data` folder as follows:
+Log-normalized count matrix is recommonded as the input of scAdapt. Raw counts matrix can be normalized by the NormalizeData function in Seurat with default ‘LogNormalize’ normalization method and a scale factor of 10,000. We use top 2000 highly variable genes as input features. We provided an example of processed datasets in the `scAdapt/processed_data` folder as follows:
 `combine_expression.csv` is the expression matrix [gene, cell] combining source and target.
 `combine_labels.csv` is the cell type label array combining source and target.
 `domain_labels.csv` is the batch/domain label array combining source and target.
@@ -51,11 +51,11 @@ python main.py --dataset_path path/to/input/files
 	       --gpu_id GPU id to run
 ```
 
-The `dataset_path` must contain the four CSV files preprocessed as in `processed_data` folder. In `result_path`, there will be three output files: `final_model_*.ckpt` has the trained model    parameters (i.e. weights and biases) and can be loaded for label prediction. `pred_labels_*.csv` contains the predicted cell label and corresponding confidence score (softmax probability). `embeddings_*.csv` contains the batch-corrected low-dimensional embeddings (default is 256) for visualization.
+The `dataset_path` must contain the four CSV files preprocessed as in `scAdapt/processed_data` folder. In `result_path`, there will be three output files: `final_model_*.ckpt` has the trained model    parameters (i.e. weights and biases) and can be loaded for label prediction. `pred_labels_*.csv` contains the predicted cell label and corresponding confidence score (softmax probability). `embeddings_*.csv` contains the batch-corrected low-dimensional embeddings (default is 256) for visualization.
 
 ### Demo
 
-A demo file `example.py` is provided in the `scAdapt` folder, and the corresponding datasets are provided in the `processed_data` folder. In the demo, we use mouse pancreas data (Baron and Tabula Muris) as source and human pancreas data (Segerstolpe) as target. The demo can be run with the following command with default parameters:
+A demo file `example.py` is provided in the `scAdapt` folder, and the corresponding datasets are provided in the `scAdapt/processed_data` folder. In the demo, we use mouse pancreas data (Baron and Tabula Muris) as source and human pancreas data (Segerstolpe) as target. The demo can be run with the following command with default parameters:
 
 `python example.py`
 
@@ -71,8 +71,6 @@ We can also plot the low-dimensional embeddings of scAdapt model by UMAP. We can
     <img src="results/UMAP.png" width="638">
 </p>
 
-# Reproducibility
-All codes and processed datasets used to reproduce the results in the paper will be published after peer-review.
 # Questions
 
 For questions about the datasets and code, please contact [zhoux85@mail2.sysu.edu.cn](mailto:zhoux85@mail2.sysu.edu.cn).
