@@ -7,9 +7,9 @@ This repository contains the preprocessed data and Python implementation for scA
 
 # Requirements
 
-pyTorch>=1.1.0
-umap-learn>=0.3.8
-universal-divergence>=0.2.0
+* pyTorch>=1.1.0
+* umap-learn>=0.3.8
+* universal-divergence>=0.2.0
 
 # Data preparation
 
@@ -71,6 +71,8 @@ We can also plot the low-dimensional embeddings of scAdapt model by UMAP. We can
     <img src="results/UMAP.png" width="638">
 </p>
 
+# Reproducibility
+All codes and processed datasets used to reproduce the results in the paper will be published after peer-review.
 # Questions
 
 For questions about the datasets and code, please contact [zhoux85@mail2.sysu.edu.cn](mailto:zhoux85@mail2.sysu.edu.cn).
